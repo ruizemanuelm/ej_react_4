@@ -4,7 +4,7 @@ import ItemTareas from "./ItemTareas";
 const Lista = (props) => {
     return (
         <ListGroup>
-        <ItemTareas tareas = {props.tareas}></ItemTareas>
+        { props.tareas.map((tareas,indice)=><ItemTareas key={indice} tareas={tareas} />)}
       </ListGroup>
     );
 };
