@@ -1,10 +1,10 @@
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Form } from "react-bootstrap";
 import ItemTareas from "./ItemTareas";
 
-const Lista = () => {
+const Lista = (props) => {
     return (
         <ListGroup>
-        <ItemTareas></ItemTareas>
+        <ItemTareas tareas = {props.tareas}></ItemTareas>
       </ListGroup>
     );
 };

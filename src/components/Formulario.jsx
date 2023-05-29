@@ -2,12 +2,12 @@ import { Form, Button } from "react-bootstrap";
 import Lista from "./Lista";
 import { useState } from "react";
 
-const Formulario = () => {
-  const [Tarea, setTarea] = useState("");
-  const [Tareas, setTareas] = useState([]);
+const Formulario = (props) => {
+  const [tarea, setTarea] = useState("");
+  const [tareas, setTareas] = useState([]);
   const hundleSubmit = (e) => {
     e.preventDefault();
-    setTareas([...Tareas, Tarea]);
+    setTareas([...tareas, tarea]);
     setTarea("");
   };
   return (
@@ -19,14 +19,14 @@ const Formulario = () => {
             type="text"
             placeholder="ingrese una tarea"
             onChange={(e) => setTarea(e.target.value)}
-            value={Tarea}
+            value={tarea}
           />
           <Button type="submit" variant="info">
             Enviar
           </Button>
         </Form.Group>
       </Form>
-      <Lista></Lista>
+      <Lista tareas = {tareas}></Lista>
     </>
   );
 };
