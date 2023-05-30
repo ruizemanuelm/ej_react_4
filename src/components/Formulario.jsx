@@ -1,8 +1,9 @@
 import { Form, Button } from "react-bootstrap";
 import Lista from "./Lista";
 import { useState } from "react";
+import ItemTareas from "./ItemTareas";
 
-const Formulario = (props) => {
+const Formulario = () => {
   const [tarea, setTarea] = useState("");
   const [tareas, setTareas] = useState([]);
   const hundleSubmit = (e) => {
@@ -10,6 +11,10 @@ const Formulario = (props) => {
     setTareas([...tareas, tarea]);
     setTarea("");
   };
+  const borrarTarea = (nombreTarea)=> {
+    let copiadetareas = tareas.filter((ItemTareas)=> ItemTareas !== nombreTarea);
+    setTareas(copiadetareas)
+  }
   return (
     <>
       <Form onSubmit={hundleSubmit}>
@@ -26,7 +31,7 @@ const Formulario = (props) => {
           </Button>
         </Form.Group>
       </Form>
-      <Lista tareas = {tareas}></Lista>
+      <Lista tareas = {tareas} borrarTarea ={borrarTarea}></Lista>
     </>
   );
 };
